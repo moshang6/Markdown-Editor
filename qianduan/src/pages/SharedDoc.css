@@ -1,0 +1,315 @@
+/* 共享文档页面样式 */
+.shared-doc-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.shared-doc-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+}
+
+.shared-doc-header h1 {
+  font-size: 28px;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+/* 分享链接区域样式 */
+.share-link-container {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.share-link-container h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.share-link-container p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.share-link-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-link-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.share-copy-button {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.share-copy-button:hover {
+  background-color: #40a9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(24, 144, 255, 0.3);
+}
+
+.share-copy-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.shared-doc-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.shared-doc-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.shared-doc-actions button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 为按钮添加点击效果 */
+.action-button:active, .action-button.active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 为按钮添加悬停效果 */
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.copy-button {
+  background-color: #1890ff;
+  color: white;
+}
+
+.copy-button:hover {
+  background-color: #40a9ff;
+}
+
+.download-button {
+  background-color: #52c41a;
+  color: white;
+}
+
+.download-button:hover {
+  background-color: #73d13d;
+}
+
+.login-button {
+  background-color: #722ed1;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #9254de;
+}
+
+.shared-doc-content {
+  margin-bottom: 40px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.shared-doc-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eaeaea;
+  text-align: center;
+  color: #666;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.auth-buttons button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.auth-buttons button:nth-child(1) {
+  background-color: #1890ff;
+  color: white;
+}
+
+.auth-buttons button:nth-child(1):hover {
+  background-color: #40a9ff;
+}
+
+.auth-buttons button:nth-child(2) {
+  background-color: #52c41a;
+  color: white;
+}
+
+.auth-buttons button:nth-child(2):hover {
+  background-color: #e8e8e8;
+}
+
+/* 加载状态 */
+.shared-doc-container.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #1890ff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 错误状态 */
+.shared-doc-container.error {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.shared-doc-container.error h2 {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+}
+
+.shared-doc-container.error p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .shared-doc-header {
+    text-align: center;
+  }
+  
+  .shared-doc-info {
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .shared-doc-actions {
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .shared-doc-actions button {
+    padding: 14px 20px; /* 增加高度使按钮在移动设备上更容易点击 */
+    min-width: 120px;
+    touch-action: manipulation; /* 优化移动设备触摸行为 */
+  }
+  
+  .copy-button, .download-button, .login-button {
+    -webkit-tap-highlight-color: transparent; /* 移除iOS上的点击高亮 */
+  }
+  
+  /* 增强移动设备上的复制按钮的视觉反馈 */
+  .copy-button:active, .copy-button.active {
+    background-color: #096dd9;
+  }
+  
+  /* 增强移动设备上的下载按钮的视觉反馈 */
+  .download-button:active, .download-button.active {
+    background-color: #389e0d;
+  }
+  
+  /* 增强移动设备上的登录按钮的视觉反馈 */
+  .login-button:active, .login-button.active {
+    background-color: #531dab;
+  }
+  
+  .auth-buttons {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 200px;
+    margin: 15px auto 0;
+  }
+
+  /* 移动设备的分享链接样式 */
+  .share-link-container {
+    padding: 12px;
+    margin: 10px 0 20px;
+  }
+
+  .share-link-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .share-link-input {
+    width: 100%;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .share-copy-button {
+    width: 100%;
+    padding: 10px 15px;
+  }
+} 

@@ -1,0 +1,9 @@
+# 启用重写引擎
+RewriteEngine On
+
+# 如果不是文件
+RewriteCond %{REQUEST_FILENAME} !-f
+# 如果不是目录
+RewriteCond %{REQUEST_FILENAME} !-d
+# 重定向所有请求到index.html
+RewriteRule ^ index.html [QSA,L] 
