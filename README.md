@@ -1,31 +1,52 @@
-从本地部署到服务器教程
-先运行init.sql和editor.sql数据库文件
 
-修改backend/src中的
-1.在index.js第41行
-// 中间件 
+## 一、运行init.sql和editor.sql数据库文件
+
+## 二、修改backend后端配置
+ 1.在src/index.js第41行  
+```
+// 中间件  
 app.use(cors({
   origin: ['http://192.168.31.73:5173', 'http://localhost:5173', 'http://my.moshang.site:5173', 'https://my.moshang.site:90'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
-需添加前端可访问的链接到origin:中
+}));`
+
+```
+添加前端可访问的链接到origin:中
 
 2.在config.js第221行
+```js
 // 添加SSL证书配置
 const sslOptions = {
   cert: fs.readFileSync('C:/Users/moshang2/Downloads/md.moshang.site/full_chain.pem'),
   key: fs.readFileSync('C:/Users/moshang2/Downloads/md.moshang.site/private.key')
 };
+```
 修改个人域名证书路径
 
 3.在.env修改DB_PASSWORD、EMAIL_USER、EMAIL_PASS、API_DOMAIN和API_IP
 
-后端在backend文件夹运行npm run dev，打开https://域名：API端口能显示”Markdown编辑器后端服务运行中“即为成功
-
-在qianduan/src修改config.js第11行domain、ip(也是域名或公网IP)和前端端口frontendPort
-然后在qianduan目录下运行npm run build，产生打包后的dist静态文件，最后配置nginx配置文件即可，样例如下：
+4.后端在backend文件夹运行npm run dev，打开https://域名：API端口 能显示”Markdown编辑器后端服务运行中“即为成功  
+![image](https://md.moshang.site:5000/uploads/img/img-1742741661612-298253129.png)  
+## 三、修改qianduan前端配置
+1.在qianduan/src修改config.js第11行domain、ip(也是域名或公网IP)和前端端口frontendPort  
+```js
+const config = {
+  // API配置
+  api: {
+    protocol: 'https',
+    domain: 'md.moshang.site', // 域名
+    ip: 'md.moshang.site',       // 外网IP
+    port: '5000',
+    frontendPort: '443',      // 前端端口
+    UPLOAD_PATH: '/api/upload/image', // 图片上传API路径
+    ...
+    }
+}
+```
+2.在qianduan目录下运行npm run build，产生打包后的dist静态文件，最后配置nginx配置文件即可，样例如下：
+```conf
 server {
     listen 443 ssl;
     ssl_certificate E:/phpstudy_pro/WWW/个人网站证书/full_chain.pem;
@@ -78,3 +99,9 @@ server {
         deny all;
     }
 } 
+```
+## 四、测试
+打开https://域名：前端端口
+能显示如下图即为成功
+![image](https://md.moshang.site:5000/uploads/img/img-1742742034002-563298457.png)  
+测试链接https://md.moshang.site/
