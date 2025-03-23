@@ -124,8 +124,10 @@ router.get('/:docId', async (req, res) => {
       console.log(`尝试通过共享令牌访问文档, ID: ${docId}, Token: ${shareToken.substring(0, 10)}...`);
       
       const sharedDocs = await query(
-        'SELECT d.id, d.title, d.content, d.created_at, d.updated_at, d.last_accessed_at FROM documents d ' +
+        'SELECT d.id, d.title, d.content, d.created_at, d.updated_at, d.last_accessed_at, u.username as creator_username ' +
+        'FROM documents d ' +
         'JOIN document_shares s ON d.id = s.document_id ' +
+        'JOIN users u ON d.user_id = u.id ' +
         'WHERE s.share_token = ? AND d.id = ? AND s.expires_at > NOW()',
         [shareToken, docId]
       );
@@ -158,7 +160,10 @@ router.get('/:docId', async (req, res) => {
       
       // 获取用户自己的文档
       const documents = await query(
-        'SELECT id, title, content, created_at, updated_at, last_accessed_at FROM documents WHERE id = ? AND user_id = ?',
+        'SELECT d.id, d.title, d.content, d.created_at, d.updated_at, d.last_accessed_at, u.username as creator_username ' +
+        'FROM documents d ' +
+        'JOIN users u ON d.user_id = u.id ' +
+        'WHERE d.id = ? AND d.user_id = ?',
         [docId, userId]
       );
       

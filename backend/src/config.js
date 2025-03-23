@@ -19,7 +19,7 @@ export const SERVER_CONFIG = {
   API_DOMAIN: process.env.API_DOMAIN || 'my.moshang.site',
   API_IP: process.env.API_IP || '192.168.31.73',
   API_PROTOCOL: process.env.API_PROTOCOL || 'https',
-  FRONTEND_PORT: 90,
+  FRONTEND_PORT: 443,
   
   // 获取请求的主机名
   getRequestHost(req) {

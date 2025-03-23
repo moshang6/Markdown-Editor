@@ -271,6 +271,7 @@ export default function SharedDoc() {
         
         <div className="shared-doc-info">
           <p>共享文档 · 只读模式</p>
+          <p>创建者: {documentData.creator_username || '未知用户'}</p>
           <p>创建于: {new Date(documentData.created_at).toLocaleString()}</p>
           <p>最后更新: {new Date(documentData.updated_at).toLocaleString()}</p>
         </div>
