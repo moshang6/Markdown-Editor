@@ -86,6 +86,7 @@
   margin-bottom: 20px;
   color: #666;
   font-size: 14px;
+  justify-content:center;
 }
 
 .shared-doc-actions {
@@ -93,6 +94,7 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 15px;
+  justify-content:center;
 }
 
 .shared-doc-actions button {
@@ -157,6 +159,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align:left;
 }
 
 .shared-doc-footer {
