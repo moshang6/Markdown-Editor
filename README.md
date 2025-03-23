@@ -103,4 +103,5 @@ server {
 ## 四、测试
 打开https://域名：前端端口
 能显示如下图即为成功
-![image](https://md.moshang.site:5000/uploads/img/img-1742742034002-563298457.png)
+![image](https://md.moshang.site:5000/uploads/img/img-1742742034002-563298457.png)  
+测试链接https://md.moshang.site/
